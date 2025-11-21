@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>productos</title>
+</head>
+<h1>productos</h1>
+<img src="https://cdn.pixabay.com/photo/2018/06/10/20/30/bread-3467243_960_720.jpg" alt="">
+
+<body>
+  <!-- Aquí irá el contenido de tu página -->
+</body>
+    <tr>
+
+    </tr>
+<ul>
+
+</html>
+
+<body>
+  <nav>
+  </nav>
+  <img
+    src="https://cdn.pixabay.com/photo/2017/05/23/22/36/vegetables-2338824_960_720.jpg"
+    alt="">
+      <tr>
+  
+      </tr>
+  <ul>
+
+    </html>
+    <img
+      src="https://cdn.pixabay.com/photo/2016/11/21/16/59/baked-goods-1846460_1280.jpg"
+      alt="">
+        <tr>
+        </tr>
+    <ul>
+      <img src="https://cdn.pixabay.com/photo/2017/09/12/05/10/starbucks-2741277_1280.jpg" alt="">
+  
+<section id="productos">
+  <header>
+    <h2>Productos Disponibles</h2>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Agregar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>pan</td>
+        <td>Camisa de algodón 100% disponible en varias tallas.</td>
+        <td>$25.00</td>
+        <td><button>Añadir al carrito</button></td>
+      </tr>
+
+      <tr>
+        <td>verduras</td>
+        <td>Pantalón cómodo ideal para uso diario.</td>
+        <td>$40.00</td>
+        <td><button>Añadir al carrito</button></td>
+      </tr>
+
+      <tr>
+        <td>torta</td>
+        <td>Gorra ajustable con diseño moderno.</td>
+        <td>$15.00</td>
+        <td><button>Añadir al carrito</button></td>
+      </tr>
+
+      <tr>
+        <td>starbucks</td>
+        <td>Sudadera suave, ligera y cálida, ideal para cualquier estación.</td>
+        <td>$35.00</td>
+        <td><button>Añadir al carrito</button></td>
+      </tr>
+      <!DOCTYPE html>
+      <html lang="es">
+      
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito de Compras</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+          }
+      
+          table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+          }
+      
+          th,
+          td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+          }
+      
+          th {
+            background-color: #f4f4f4;
+          }
+      
+          button {
+            padding: 5px 10px;
+            cursor: pointer;
+          }
+      
+          #total {
+            font-weight: bold;
+            font-size: 1.2em;
+          }
+        </style>
+      </head>
+      
+      <body>
+      
+        <h1>Carrito de Compras</h1>
+      
+        <table id="carrito">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Los productos se agregan aquí -->
+          </tbody>
+        </table>
+      
+        <p id="total">Total: $0.00</p>
+      
+        <h2>Agregar Producto</h2>
+        <label>Nombre: <input type="text" id="nombre"></label>
+        <label>Precio: <input type="number" id="precio" step="0.01"></label>
+        <label>Cantidad: <input type="number" id="cantidad" value="1"></label>
+        <button onclick="agregarProducto()">Agregar al Carrito</button>
+      
+        <script>
+          const carrito = [];
+
+          function actualizarTabla() {
+            const tbody = document.querySelector('#carrito tbody');
+            tbody.innerHTML = ''; // Limpiar tabla
+            let total = 0;
+
+            carrito.forEach((item, index) => {
+              const subtotal = item.precio * item.cantidad;
+              total += subtotal;
+
+              const fila = document.createElement('tr');
+              fila.innerHTML = `
+              <td>${item.nombre}</td>
+              <td>$${item.precio.toFixed(2)}</td>
+              <td>${item.cantidad}</td>
+              <td>$${subtotal.toFixed(2)}</td>
+              <td><button onclick="eliminarProducto(${index})">Eliminar</button></td>
+            `;
+              tbody.appendChild(fila);
+            });
+
+            document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`;
+          }
+
+          function agregarProducto() {
+            const nombre = document.getElementById('nombre').value;
+            const precio = parseFloat(document.getElementById('precio').value);
+            const cantidad = parseInt(document.getElementById('cantidad').value);
+
+            if (!nombre || isNaN(precio) || isNaN(cantidad) || precio <= 0 || cantidad <= 0) {
+              alert('Por favor ingresa datos válidos.');
+              return;
+            }
+
+            carrito.push({ nombre, precio, cantidad });
+            actualizarTabla();
+
+            // Limpiar inputs
+            document.getElementById('nombre').value = '';
+            document.getElementById('precio').value = '';
+            document.getElementById('cantidad').value = 1;
+          }
+
+          function eliminarProducto(index) {
+            carrito.splice(index, 1);
+            actualizarTabla();
+          }
+        </script>
+      
+      </body>
+      
+      </html>
+
+    </tbody>
